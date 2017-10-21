@@ -1,0 +1,8 @@
+/* line 2, ../sass/modules/separater.scss */
+.under-title-separater {
+  display: inline-block;
+  width: 40px;
+  height: 4px;
+  margin-top: 16px;
+  background: black;
+}

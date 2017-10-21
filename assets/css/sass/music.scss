@@ -1,0 +1,115 @@
+@import "core";
+@import "modules/forms";
+@import "modules/separator";
+@import "modules/header";
+@import "modules/footer";
+
+
+
+#music {
+  background: #FFFDFD;
+
+  .page-wrap {
+
+    .container {
+      width: 400px;
+      margin: auto;
+      margin-top: 50px;
+
+      #main-box-header {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        direction: ltr;
+
+        .logo {
+          width: 40px;
+        }
+        .title {
+          display: inline-block;
+          margin-left: 10px;
+          font-size: 30px;
+        }
+      }
+
+      #box {
+        border-width: 3px;
+        border-style: solid;
+        border-image: linear-gradient(to top, #522546, #88304E) 11;
+        margin-top: 10px;
+
+        .body {
+          padding: 30px 20px;
+          background: #F9FAFF;
+
+          .title {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 30px;
+            font-weight: 300;
+            color: #E23E57;
+          }
+          .description {
+            text-align: center;
+            font-weight: 100;
+            font-size: 14px;
+            margin-bottom: 30px;
+          }
+          .input {
+            display: block;
+            width: 80%;
+            margin: 0 auto 10px;
+            text-align: center;
+            line-height: 36px;
+            font-size: 15px;
+            border: 1px solid #ccc;
+            background: 0 0;
+          }
+          .email {
+            direction: ltr;
+          }
+          .login {
+            display: block;
+            width: 80%;
+            margin: auto;
+            text-align: center;
+            line-height: 36px;
+            font-size: 15px;
+            border: 1px solid #ccc;
+            background: 0 0;
+            border-image: linear-gradient(50deg,#e23e57,#88304E) 1;
+            border-width: 2px;
+            color: #88304E;
+            font-weight: 700;
+            cursor: pointer;
+            -webkit-transition: all 300ms ease-in-out;
+            transition: all 300ms ease-in-out;
+
+            &:hover {
+              background: #e23e57;
+              color: #fff;
+            }
+          }
+
+          .check {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 10px;
+            color: #9a3451;
+            display: block;
+            font-weight: 100;
+          }
+        }
+      }
+      .error {
+        font-size: 13px;
+        background: #e23f58;
+        padding: 10px;
+        color: #fff;
+        font-weight: 100;
+      }
+    }
+
+  }
+
+}

@@ -1,0 +1,10 @@
+%clearfix{
+  zoom:1;/* For IE 6/7 (trigger hasLayout) */
+  &::after,before{
+    content: "";
+    display: block;
+  }
+  &::after{
+    clear: both;
+  }
+}
