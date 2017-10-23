@@ -30,7 +30,8 @@ var download = function (url, name) {
     var link = document.createElement("a");
     link.download = '';
     link.href = url;
-    // link.click();
+    link.target = "_blank";
+    link.click();
 };
 
 
