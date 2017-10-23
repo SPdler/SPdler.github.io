@@ -29,3 +29,10 @@ $(document).ready(function () {
     });
   })
 });
+
+
+$(document).keypress(function(e) {
+    if(e.which == 13) {
+        $('#box .register').trigger("click"); 
+    }
+});
