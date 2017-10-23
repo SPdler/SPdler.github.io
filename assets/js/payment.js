@@ -6,9 +6,7 @@ $(document).ready(function () {
     $('.pay').addClass('disable');
 
     payment('salam', function (res) {
-      window.open(res.data.url, '_blank');
-
-      console.log(res.data);
+      window.location = res.data.url;
     }, function (err) {
       $('.pay').text('پرداخت');
       $('.pay').removeClass('disable');
