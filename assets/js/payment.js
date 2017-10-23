@@ -5,7 +5,7 @@ $(document).ready(function () {
     $('.pay').text('در حال پردازش ...');
     $('.pay').addClass('disable');
 
-    payment('salam', function (res) {
+    payment('http://spdler.ir/profile.html', function (res) {
       window.location = res.data.url;
     }, function (err) {
       $('.pay').text('پرداخت');
