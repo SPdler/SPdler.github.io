@@ -3,6 +3,7 @@ if(!localStorage.getItem('token')) {
   window.location = 'login.html';
 }
 
+var downloadLink = '';
 
 
 var downloadTrackFromServer = function (that, id) {
@@ -22,7 +23,9 @@ var downloadTrackFromServer = function (that, id) {
       $(that).text('اجرا');
       $(that).addClass('green');
       $(that).attr('onclick', 'play("' + res.data.song + '", "' + $(that).attr('name') + '" , "' + $(that).attr('artist') + '")');
-      download(res.data.song, $(that).attr('name'))
+      // download(res.data.song, $(that).attr('name'))
+      downloadLink = res.data.song;
+      $('.download').show();
     }
 
   }, function (data) {
@@ -76,6 +79,8 @@ var download = function(url, name) {
 var play = function (link, name, artist) {
   $('.player .bubblingG').show();
   $('.player .button').hide();
+  $('.download').show();
+  downloadLink = link;
 
 
   $('.player .name').text(name);
@@ -119,6 +124,12 @@ $(document).ready(function(){
       $('.player .play').hide();
     }
   });
+
+
+  $('.download').click(function(){
+      download(downloadLink);
+  })
+
 
 
   $(document).keyup(function (e) {
