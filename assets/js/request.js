@@ -121,6 +121,22 @@ function getMyTrack(id, success, error) {
 }
 
 
+
+function removeTrack(id, success, error) {
+  $.ajax({
+    type: "POST",
+    url: api + '/spotifyTracks/' + id + '/delete',
+    headers: {
+      "Authorization" : 'bearer ' + localStorage.getItem('token')
+    },
+    success: success,
+    error: error
+  });
+}
+
+
+
+
 function getMyTracks(success, error) {
   $.ajax({
     type: "GET",

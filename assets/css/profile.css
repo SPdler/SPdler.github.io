@@ -495,7 +495,8 @@ h1, h2, h3, h4, h5, h6, input, textarea, select, button {
 }
 /* line 107, sass/profile.scss */
 #profile .page-wrap .container #box .player .detail {
-  width: 80%;
+  width: 70%;
+    margin-left: 10%;
 }
 @media only screen and (max-width: 575px) {
   /* line 107, sass/profile.scss */
@@ -592,6 +593,7 @@ h1, h2, h3, h4, h5, h6, input, textarea, select, button {
 #profile .page-wrap .container #box .body .item {
   position: relative;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   direction: ltr;
   padding: 10px 0;
@@ -614,7 +616,8 @@ h1, h2, h3, h4, h5, h6, input, textarea, select, button {
 @media only screen and (max-width: 575px) {
   /* line 212, sass/profile.scss */
   #profile .page-wrap .container #box .body .item .detail {
-    width: 70%;
+    width: 160px;
+
   }
 }
 /* line 216, sass/profile.scss */
@@ -631,6 +634,7 @@ h1, h2, h3, h4, h5, h6, input, textarea, select, button {
   #profile .page-wrap .container #box .body .item .detail .track {
     font-size: 15px;
     width: 70%;
+    display: inline-block;
   }
 }
 /* line 229, sass/profile.scss */
@@ -643,6 +647,7 @@ h1, h2, h3, h4, h5, h6, input, textarea, select, button {
   /* line 229, sass/profile.scss */
   #profile .page-wrap .container #box .body .item .detail .artist {
     width: 70%;
+    display: inline-block;
   }
 }
 /* line 239, sass/profile.scss */
@@ -820,3 +825,29 @@ h1, h2, h3, h4, h5, h6, input, textarea, select, button {
     -moz-transform: translateY(-20px);
   }
 }
+
+
+
+
+.remove {
+    width: 18px;
+    cursor: pointer;
+}
+
+
+
+@media only screen and (max-width: 575px) {
+
+  .remove {
+      width: 18px;
+      margin-right: 100px;
+      cursor: pointer;
+  }
+
+}
+
+
+.download{
+  display:block;left:10px
+}
+

@@ -6,25 +6,41 @@ if (!localStorage.getItem('token')) {
 
 var downloadLink = '';
 
+
+var remove = function(that, id) {
+    console.log(id)
+    removeTrack(id, function (res) {
+        getAllTrackss();
+    }, function (data) {
+        console.log(data);
+        $(that).removeClass('disable');
+        $(that).text('دریافت');
+    })
+}
+
 var downloadTrackFromServer = function (that, id) {
 
     $(that).text('در حال پردازش...');
     $(that).addClass('disable');
 
     getMyTrack(id, function (res) {
-        console.log(res);
-        $(that).removeClass('disable');
-        $(that).text('اجرا');
-        $(that).addClass('green');
-        $(that).attr('onclick', 'play("' + res.data.song + '", "' + $(that).attr('name') + '" , "' + $(that).attr('artist') + '")');
-        // download(res.data.song, $(that).attr('name'))
-        downloadLink = res.data.song;
-
-
+        if(!res.data.song) {
+          setTimeout(function () {
+            checkDownload(that, id);
+          }, 3000)
+        }
+        else {
+          $(that).removeClass('disable');
+          $(that).text('اجرا');
+          $(that).addClass('green');
+          $(that).attr('onclick', 'play("' + res.data.song + '", "' + $(that).attr('name') + '" , "' + $(that).attr('artist') + '")');
+          // download(res.data.song, $(that).attr('name'))
+          downloadLink = res.data.song;
+          $('.download').show();
+        }
+        
     }, function (data) {
         console.log(data);
-        $(that).removeClass('disable');
-        $(that).text('دریافت');
     })
 };
 
@@ -53,7 +69,7 @@ var play = function (link, name, artist) {
 
     $('.player ').slideDown();
 
-    if (sound) {
+    if (sound != undefined) {
         sound.unload();
     }
     sound = new Howl({
@@ -70,6 +86,13 @@ var play = function (link, name, artist) {
 
 
 $(document).ready(function () {
+    getAllTrackss();
+
+});
+
+
+
+var getAllTrackss = function() {
     $('.body .bubblingG').hide();
 
 
@@ -110,6 +133,7 @@ $(document).ready(function () {
                 '<p class="track english">' + res.data.tracks.data[i].name + '</p> ' +
                 '<p class="artist">' + res.data.tracks.data[i].artists.data[0].name + '</p> ' +
                 '</div> ' +
+                '<img class="remove" src="assets/images/remove.svg" onclick="remove(this, \'' + res.data.tracks.data[i].id + '\')" >' +
                 '<div class="get" onclick="downloadTrackFromServer(this, \'' + res.data.tracks.data[i].id + '\')" ' +
                 'name= "' + res.data.tracks.data[i].name + '" artist="' + res.data.tracks.data[i].artists.data[0].name + '" >دریافت</div> ' +
                 '</div>')
@@ -126,5 +150,4 @@ $(document).ready(function () {
         }
 
     })
-
-});
+}
